@@ -11,7 +11,7 @@ export default function BrandBar() {
 
           {/* Right side */}
           <span className="opacity-70 text-center sm:text-right text-xs sm:text-sm">
-            curated by <span className="font-medium">Mobbin</span>
+            curated by <span className="font-medium">Hosewell</span>
           </span>
         </div>
       </div>
