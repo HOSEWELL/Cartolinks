@@ -1,26 +1,36 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base colors */
+@layer base {
+  /* Use dark: variants directly on body */
+  body {
+    @apply h-full bg-white text-gray-900 antialiased
+           dark:bg-[#0b0b0f] dark:text-gray-100;
   }
+
+  /* Smooth theme transitions */
+  * { transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
+}
+@layer base {
+  html { scroll-behavior: smooth; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Components */
+@layer components {
+  /* Cards: solid dark surface (no milky look) */
+  .card {
+    @apply rounded-3xl shadow-soft border bg-white border-black/5
+           dark:bg-zinc-900 dark:border-white/10;
+  }
+
+  .card-hover {
+    @apply hover:shadow-md hover:shadow-black/10
+           dark:hover:bg-zinc-800 dark:hover:shadow-white/5;
+  }
+
+  .brandbar {
+    @apply fixed bottom-0 inset-x-0 z-30;
+  }
 }
